@@ -58,7 +58,11 @@ auto lo
 iface lo inet loopback
 
 # The Wan interface
-enp0s3
+allow-hotplug enp0s3
+iface enp0s3 inet static
+  address 192.168.1.193/24
+  gateway 192.168.1.254
+  dns-nameservers 8.8.8.8
 
 # The Lan1 interface
 auto enp0s8
