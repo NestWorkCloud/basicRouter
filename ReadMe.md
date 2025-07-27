@@ -37,6 +37,13 @@ sed -i -e "s/^net.ipv4.ip_forward.*/net.ipv4.ip_forward=1/g" /etc/sysctl.conf
 sysctl -p /etc/sysctl.conf
 ```
 
+## Activation du NAT
+> [!Note]
+> Modifier "ens33" par l'interface réseau WAN
+```
+iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
+```
+
 # Sources 
 > [Routage](https://alexbacher.fr/unixlinux/routagedeb/)  
 > [IP forwarding](https://www.it-connect.fr/activer-lip-forwarding-sous-linux-ipv4ipv6/)  
