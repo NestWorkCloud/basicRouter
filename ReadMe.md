@@ -229,6 +229,11 @@ host ceph1 {
 EOF
 ```
 
+## Redémarrage du service dhcp
+```
+systemctl restart isc-dhcp-server.service
+```
+
 # Partie 5 : Ouverture de port
 ## Ouverture du port SSH
 > [!Note]
