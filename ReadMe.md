@@ -1,8 +1,12 @@
 # Mise à jour de la distribution
+```
 apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y full-upgrade 
+```
 
 # Installation des utilitaires
+```
 apt-get -y install nano htop openssh-server
+```
 
 # Configuration des interfaces
 ## Sauvegarde du fichier de configuration
