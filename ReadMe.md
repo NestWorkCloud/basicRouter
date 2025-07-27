@@ -113,7 +113,7 @@ iptables-save > /etc/iptables/rules.v4
 ## Configuration du dhcp
 ```
 sed -i -e "s/^DHCPDv4_CONF.*/DHCPDv4_CONF=/etc/dhcp/dhcpd.conf/g" /etc/default/isc-dhcp-server
-sed -i -e "s/^INTERFACESv4.*/INTERFACESv4="ens33"/g" /etc/default/isc-dhcp-server
+sed -i -e "s/^INTERFACESv4.*/INTERFACESv4="enp0s8,enp0s9,enp0s10"/g" /etc/default/isc-dhcp-server
 cat <<EOF >> /etc/dhcp/dhcpd.conf
 # Nom de domaine
 option domain-name "basicrouter.local";
