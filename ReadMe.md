@@ -1,3 +1,21 @@
+> [!CAUTION]
+> - 1 serveurs sous Debian 12.11.00 (Utilitaires usuels du système uniquement) :
+>   - Un serveur Router (basicRouter)
+> - Réseau :
+>     -  Réseau WAN :
+>         -  Réseau     : 192.168.20.0/24
+>         -  Passerelle : 192.168.20.254
+>     -  Réseau LAN1   :
+>         -  Réseau     : 192.168.50.0/24
+>         -  Passerelle : N/A
+>      -  Réseau LAN2   :
+>         -  Réseau     : 192.168.50.0/24
+>         -  Passerelle : N/A
+>      -  Réseau LAN3   :
+>         -  Réseau     : 192.168.50.0/24
+>         -  Passerelle : N/A
+> - Toutes les commandes sur les différents serveurs sont à exécuter en tant que 'root' sauf mention contraire !
+
 # Mise à jour de la distribution
 ```
 apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y full-upgrade 
@@ -119,3 +137,4 @@ systemctl restart isc-dhcp-server.service
 # Sources 
 > [Routage](https://alexbacher.fr/unixlinux/routagedeb/)  
 > [IP forwarding](https://www.it-connect.fr/activer-lip-forwarding-sous-linux-ipv4ipv6/)  
+> [DHCP](https://www.it-connect.fr/serveur-dhcp-sous-linux/)  
