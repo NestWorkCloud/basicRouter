@@ -5,15 +5,19 @@
 >     -  Réseau WAN :
 >         -  Réseau     : 192.168.20.0/24
 >         -  Passerelle : 192.168.20.254
+>         -  DNS : 
 >     -  Réseau LAN1   :
->         -  Réseau     : 192.168.50.0/24
->         -  Passerelle : N/A
+>         -  Réseau     : 172.16.10.0/24
+>         -  Passerelle : 172.16.10.254
+>         -  DNS : 8.8.8.8
 >      -  Réseau LAN2   :
->         -  Réseau     : 192.168.50.0/24
->         -  Passerelle : N/A
+>         -  Réseau     : 172.16.20.0/24
+>         -  Passerelle : 172.16.20.254
+>         -  DNS : 8.8.8.8
 >      -  Réseau LAN3   :
->         -  Réseau     : 192.168.50.0/24
->         -  Passerelle : N/A
+>         -  Réseau     : 172.16.30.0/24
+>         -  Passerelle : 172.16.20.254
+>         -  DNS : 8.8.8.8
 > - Toutes les commandes sur les différents serveurs sont à exécuter en tant que 'root' sauf mention contraire !
 
 # Mise à jour de la distribution
@@ -54,12 +58,22 @@ auto lo
 iface lo inet loopback
 
 # The Wan interface
+enp0s3
 
 # The Lan1 interface
+auto enp0s8
+iface enp0s8 inet static
+        address 172.16.10.254/24
 
 # The Lan2 interface
+auto enp0s9
+iface enp0s9 inet static
+        address 172.16.20.254/24
 
 # The Lan3 interface
+auto enp0s10
+iface enp0s10 inet static
+        address 172.16.10.254/24
 
 EOF
 ```
