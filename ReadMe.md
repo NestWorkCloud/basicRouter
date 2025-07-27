@@ -90,7 +90,7 @@ systemctl restart networking
 # Mise en place du routage
 ## Activation permanente de l'IP forwarding
 ```
-sed -i -e "s/^net.ipv4.ip_forward.*/net.ipv4.ip_forward=1/g" /etc/sysctl.conf
+sed -i -e "s/.*net.ipv4.ip_forward.*/net.ipv4.ip_forward=1/g" /etc/sysctl.conf
 ```
 
 ## Rechargement de la configuration
