@@ -28,6 +28,13 @@ echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-
 apt-get -y install nano htop openssh-server iptables iptables-persistent isc-dhcp-server sudo
 ```
 
+# Modification du nom du serveur
+```
+hostnamectl set-hostname basicRouter
+sed -i -e "s/^127.0.1.1.*$/127.0.1.1 basicRouter/" /etc/hosts
+hostnamectl
+```
+
 # Configuration des interfaces
 ## Sauvegarde du fichier de configuration
 ```
