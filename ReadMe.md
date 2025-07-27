@@ -100,9 +100,9 @@ sysctl -p /etc/sysctl.conf
 
 ## Activation du NAT
 > [!Note]
-> Modifier "ens33" par l'interface réseau WAN
+> Modifier "enp0s3" par l'interface réseau WAN
 ```
-iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
 ```
 
 ## Sauvegarde de la configuration
