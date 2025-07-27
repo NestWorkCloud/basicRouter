@@ -20,32 +20,33 @@
 >         -  DNS : 8.8.8.8
 > - Toutes les commandes sur les différents serveurs sont à exécuter en tant que 'root' sauf mention contraire !
 
-# Mise à jour de la distribution
+# Partie 1 : Préparation du serveur
+## Mise à jour de la distribution
 ```
 apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y full-upgrade 
 ```
 
-# Installation des utilitaires
+## Installation des utilitaires
 ```
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
 apt-get -y install nano htop openssh-server iptables iptables-persistent isc-dhcp-server sudo iputils-ping
 ```
 
-# Modification du nom du serveur
+## Modification du nom du serveur
 ```
 hostnamectl set-hostname basicRouter
 sed -i -e "s/^127.0.1.1.*$/127.0.1.1 basicRouter/" /etc/hosts
 hostnamectl
 ```
 
-# Configuration des interfaces
-## Sauvegarde du fichier de configuration
+## Configuration des interfaces
+### Sauvegarde du fichier de configuration
 ```
 mv /etc/network/interfaces /etc/network/interfaces.bak
 ```
 
-## Edition du fichier de configuration
+### Edition du fichier de configuration
 > [!NOTE]
 > - Modifier les interfaces :
 >   - "enp0s3" par le nom de l'interface réseau WAN
@@ -95,12 +96,12 @@ iface enp0s10 inet static
 EOF
 ```
 
-## Redémarrage du service réseau
+### Redémarrage du service réseau
 ```
 systemctl restart networking
 ```
 
-# Mise en place du routage
+# Partie 2 : Mise en place du routage
 ## Activation permanente de l'IP forwarding
 ```
 sed -i -e "s/.*net.ipv4.ip_forward.*/net.ipv4.ip_forward=1/g" /etc/sysctl.conf
@@ -123,7 +124,8 @@ iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
 iptables-save > /etc/iptables/rules.v4
 ```
 
-## Configuration du dhcp
+# Partie 3 : Configuration du dhcp
+## Configuration des options de base du DHCP
 ```
 sed -i -e "s/.*DHCPDv4_CONF.*/DHCPDv4_CONF=\/etc\/dhcp\/dhcpd.conf/g" /etc/default/isc-dhcp-server
 sed -i -e 's/.*INTERFACESv4.*/INTERFACESv4="enp0s8 enp0s9 enp0s10"/g' /etc/default/isc-dhcp-server
@@ -210,6 +212,17 @@ EOF
 ### Redémarrage du service dhcp
 ```
 systemctl restart isc-dhcp-server.service
+```
+
+# Partie 4 : Ouverture de port
+## Ouverture du port SSH
+```
+
+```
+
+## Sauvegarde de la configuration
+```
+iptables-save > /etc/iptables/rules.v4
 ```
 
 # Sources 
