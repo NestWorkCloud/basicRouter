@@ -1,5 +1,5 @@
 > [!CAUTION]
-> - 1 serveurs sous Debian 12.11.00 (Utilitaires usuels du système uniquement) :
+> - 1 serveur sous Debian 12.11.00 (Utilitaires usuels du système uniquement) :
 >   - Un serveur Router (basicRouter)
 > - Réseau :
 >     -  Réseau WAN :
