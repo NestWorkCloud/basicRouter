@@ -7,7 +7,7 @@ apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y fu
 ```
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
-apt-get -y install nano htop openssh-server iptables iptables-persistent
+apt-get -y install nano htop openssh-server iptables iptables-persistent isc-dhcp-server
 ```
 
 # Configuration des interfaces
@@ -49,6 +49,71 @@ iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
 ## Sauvegarde de la configuration
 ```
 iptables-save > /etc/iptables/rules.v4
+```
+
+## Configuration du dhcp
+```
+sed -i -e "s/^DHCPDv4_CONF.*/DHCPDv4_CONF=/etc/dhcp/dhcpd.conf/g" /etc/default/isc-dhcp-server
+sed -i -e "s/^INTERFACESv4.*/INTERFACESv4="ens33"/g" /etc/default/isc-dhcp-server
+cat <<EOF >> /etc/dhcp/dhcpd.conf
+# Nom de domaine
+option domain-name "basicrouter.local";
+
+# Durée pour les baux DHCP en secondes (default 4 jours et 8 jours maximum)
+default-lease-time 345600;
+max-lease-time 691200;
+
+# Serveur DHCP principal sur ce réseau local
+authoritative;
+
+# Logs
+log-facility local7;
+EOF
+```
+
+## Définition des étendues dhcp
+### Etendue 1
+```
+cat <<EOF >> /etc/dhcp/dhcpd.conf
+
+# Déclaration de l'étendue DHCP ""
+subnet 192.168.14.0 netmask 255.255.255.0 {
+        range   192.168.14.100 192.168.14.120;
+        option domain-name-servers 8.8.8.8;
+        option routers 192.168.14.2;
+}
+EOF
+```
+
+### Etendue 2
+```
+cat <<EOF >> /etc/dhcp/dhcpd.conf
+
+# Déclaration de l'étendue DHCP ""
+subnet 192.168.14.0 netmask 255.255.255.0 {
+        range   192.168.14.100 192.168.14.120;
+        option domain-name-servers 8.8.8.8;
+        option routers 192.168.14.2;
+}
+EOF
+```
+
+### Etendue 3
+```
+cat <<EOF >> /etc/dhcp/dhcpd.conf
+
+# Déclaration de l'étendue DHCP ""
+subnet 192.168.14.0 netmask 255.255.255.0 {
+        range   192.168.14.100 192.168.14.120;
+        option domain-name-servers 8.8.8.8;
+        option routers 192.168.14.2;
+}
+EOF
+```
+
+### Redémarrage du service dhcp
+```
+systemctl restart isc-dhcp-server.service
 ```
 
 # Sources 
