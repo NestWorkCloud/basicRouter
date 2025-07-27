@@ -150,7 +150,7 @@ EOF
 > [!Note]
 > - Modifiez les adresses :
 >   - "172.16.10.0" par l'adresse réseau du Lan1
->   - "255.255.255.0" par le masque de sous réseau du Lan1
+>   - "255.255.255.0" par le masque de sous-réseau du Lan1
 >   - "172.16.10.100" par la première adresse à distribuer par DHCP sur le Lan1
 >   - "172.16.10.120" par la dernière adresse à distribuer par DHCP sur le Lan1
 >   - "8.8.8.8" par l'adresse du serveur DNS à distribuer par DHCP sur le Lan1
@@ -171,7 +171,7 @@ EOF
 > [!Note]
 > - Modifiez les adresses :
 >   - "172.16.20.0" par l'adresse réseau du Lan2
->   - "255.255.255.0" par le masque de sous réseau du Lan2
+>   - "255.255.255.0" par le masque de sous-réseau du Lan2
 >   - "172.16.20.100" par la première adresse à distribuer par DHCP sur le Lan2
 >   - "172.16.20.120" par la dernière adresse à distribuer par DHCP sur le Lan2
 >   - "8.8.8.8" par l'adresse du serveur DNS à distribuer par DHCP sur le Lan2
@@ -192,7 +192,7 @@ EOF
 > [!Note]
 > - Modifiez les adresses :
 >   - "172.16.30.0" par l'adresse réseau du Lan3
->   - "255.255.255.0" par le masque de sous réseau du Lan3
+>   - "255.255.255.0" par le masque de sous-réseau du Lan3
 >   - "172.16.30.100" par la première adresse à distribuer par DHCP sur le Lan3
 >   - "172.16.30.120" par la dernière adresse à distribuer par DHCP sur le Lan3
 >   - "8.8.8.8" par l'adresse du serveur DNS à distribuer par DHCP sur le Lan3
