@@ -73,7 +73,7 @@ iface enp0s9 inet static
 # The Lan3 interface
 auto enp0s10
 iface enp0s10 inet static
-        address 172.16.10.254/24
+        address 172.16.30.254/24
 
 EOF
 ```
