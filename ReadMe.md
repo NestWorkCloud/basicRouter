@@ -5,7 +5,7 @@ apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y fu
 
 # Installation des utilitaires
 ```
-apt-get -y install nano htop openssh-server
+apt-get -y install nano htop openssh-server iptables
 ```
 
 # Configuration des interfaces
