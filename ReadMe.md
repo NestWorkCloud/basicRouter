@@ -29,7 +29,7 @@ apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y fu
 ```
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | debconf-set-selections
-apt-get -y install nano htop openssh-server iptables iptables-persistent isc-dhcp-server sudo
+apt-get -y install nano htop openssh-server iptables iptables-persistent isc-dhcp-server sudo iputils-ping
 ```
 
 # Modification du nom du serveur
