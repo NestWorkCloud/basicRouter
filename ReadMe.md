@@ -5,7 +5,9 @@ apt-get update && apt-get -y upgrade && apt-get -y dist-upgrade && apt-get -y fu
 
 # Installation des utilitaires
 ```
-apt-get -y install nano htop openssh-server iptables
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+apt-get -y install nano htop openssh-server iptables iptables-persistent
 ```
 
 # Configuration des interfaces
@@ -42,6 +44,11 @@ sysctl -p /etc/sysctl.conf
 > Modifier "ens33" par l'interface réseau WAN
 ```
 iptables -t nat -A POSTROUTING -o ens33 -j MASQUERADE
+```
+
+## Sauvegarde de la configuration
+```
+iptables-save > /etc/iptables/rules.v4
 ```
 
 # Sources 
