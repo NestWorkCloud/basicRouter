@@ -216,8 +216,13 @@ systemctl restart isc-dhcp-server.service
 
 # Partie 4 : Ouverture de port
 ## Ouverture du port SSH
+> [!Note]
+> Modifier "enp0s3" par l'interface réseau WAN
+> Modifier "2201" par le port externe à ouvrir (Port à ouvrir sur l'adresse IP de l'interface WAN)
+> Modifier "22" par le port de la machine à mapper
+> Modifier "172.16.10.10" par l'adresse de la machine à mapper
 ```
-
+iptables -t nat -A PREROUTING -i enp0s3 -p tcp --dport 2201 -j DNAT --to-destination 172.16.10.10:22
 ```
 
 ## Sauvegarde de la configuration
