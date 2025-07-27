@@ -46,6 +46,19 @@ mv /etc/network/interfaces /etc/network/interfaces.bak
 ```
 
 ## Edition du fichier de configuration
+> [!NOTE]
+> - Modifier les interfaces :
+>   - "enp0s3" par le nom de l'interface réseau WAN
+>   - "enp0s8" par le nom de l'interface réseau Lan1
+>   - "enp0s9" par le nom de l'interface réseau Lan2
+>   - "enp0s10" par le nom de l'interface réseau Lan3
+> - Modifier les addresses :
+>   - "192.168.1.193/24" par l'adresse ip de l'interface WAN
+>   - "192.168.1.254" par l'adresse ip de la box internet
+>   - "8.8.8.8" par l'adresse du serveur DNS à utiliser
+>   - "172.16.10.254/24" par l'adresse du router à utiliser pour le Lan1
+>   - "172.16.20.254/24" par l'adresse du router à utiliser pour le Lan2
+>   - "172.16.30.254/24" par l'adresse du router à utiliser pour le Lan3
 ```
 cat <<EOF > /etc/network/interfaces
 # This file describes the network interfaces available on your system
