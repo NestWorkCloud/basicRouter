@@ -214,7 +214,22 @@ EOF
 systemctl restart isc-dhcp-server.service
 ```
 
-# Partie 4 : Ouverture de port
+# Partie 4 : Baux static
+## Attribuer une adresse IP static
+> [!Note]
+> - Remplacer "ceph1" par le nom de la machine à configurer
+> - Remplacer "08:00:27:45:F1:68" par l'adresse MAC de la machine à configurer
+> - Remplacer "172.16.10.10" par l'adresse IP souhaitée pour la machine à configurer
+```
+cat <<EOF >> /etc/dhcp/dhcpd.conf
+host ceph1 {
+  hardware ethernet 08:00:27:45:F1:68;
+  fixed-address 172.16.10.10;
+}
+EOF
+```
+
+# Partie 5 : Ouverture de port
 ## Ouverture du port SSH
 > [!Note]
 > - Modifier "enp0s3" par l'interface réseau WAN
