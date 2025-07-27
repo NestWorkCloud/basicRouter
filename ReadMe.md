@@ -3,9 +3,9 @@
 >   - Un serveur Router (basicRouter)
 > - Réseau :
 >     -  Réseau WAN :
->         -  Réseau     : 192.168.20.0/24
->         -  Passerelle : 192.168.20.254
->         -  DNS : 
+>         -  Réseau     : 192.168.1.193/24
+>         -  Passerelle : 192.168.1.254
+>         -  DNS : 8.8.8.8
 >     -  Réseau LAN1   :
 >         -  Réseau     : 172.16.10.0/24
 >         -  Passerelle : 172.16.10.254
