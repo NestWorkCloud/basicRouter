@@ -146,7 +146,7 @@ EOF
 ```
 
 ## Définition des étendues dhcp
-### Etendue Lan1
+### Étendue Lan1
 > [!Note]
 > - Modifiez les adresses :
 >   - "172.16.10.0" par l'adresse réseau du Lan1
@@ -167,7 +167,7 @@ subnet 172.16.10.0 netmask 255.255.255.0 {
 EOF
 ```
 
-### Etendue Lan2
+### Étendue Lan2
 > [!Note]
 > - Modifiez les adresses :
 >   - "172.16.20.0" par l'adresse réseau du Lan2
@@ -188,7 +188,7 @@ subnet 172.16.20.0 netmask 255.255.255.0 {
 EOF
 ```
 
-### Etendue Lan3
+### Étendue Lan3
 > [!Note]
 > - Modifiez les adresses :
 >   - "172.16.30.0" par l'adresse réseau du Lan3
