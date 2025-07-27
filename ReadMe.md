@@ -131,41 +131,41 @@ EOF
 ```
 
 ## Définition des étendues dhcp
-### Etendue 1
+### Etendue Lan 1
 ```
 cat <<EOF >> /etc/dhcp/dhcpd.conf
 
-# Déclaration de l'étendue DHCP ""
-subnet 192.168.14.0 netmask 255.255.255.0 {
-        range   192.168.14.100 192.168.14.120;
+# Déclaration de l'étendue DHCP "Lan1"
+subnet 172.16.10.0 netmask 255.255.255.0 {
+        range   172.16.10.100 172.16.10.120;
         option domain-name-servers 8.8.8.8;
-        option routers 192.168.14.2;
+        option routers 172.16.10.254;
 }
 EOF
 ```
 
-### Etendue 2
+### Etendue Lan 2
 ```
 cat <<EOF >> /etc/dhcp/dhcpd.conf
 
-# Déclaration de l'étendue DHCP ""
-subnet 192.168.14.0 netmask 255.255.255.0 {
-        range   192.168.14.100 192.168.14.120;
+# Déclaration de l'étendue DHCP "Lan2"
+subnet 172.16.20.0 netmask 255.255.255.0 {
+        range   172.16.20.100 172.16.20.120;
         option domain-name-servers 8.8.8.8;
-        option routers 192.168.14.2;
+        option routers 172.16.20.254;
 }
 EOF
 ```
 
-### Etendue 3
+### Etendue Lan 3
 ```
 cat <<EOF >> /etc/dhcp/dhcpd.conf
 
-# Déclaration de l'étendue DHCP ""
-subnet 192.168.14.0 netmask 255.255.255.0 {
-        range   192.168.14.100 192.168.14.120;
+# Déclaration de l'étendue DHCP "Lan3"
+subnet 172.16.30.0 netmask 255.255.255.0 {
+        range   172.16.30.100 172.16.30.120;
         option domain-name-servers 8.8.8.8;
-        option routers 192.168.14.2;
+        option routers 172.16.30.254;
 }
 EOF
 ```
