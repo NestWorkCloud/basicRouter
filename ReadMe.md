@@ -44,6 +44,22 @@ mv /etc/network/interfaces /etc/network/interfaces.bak
 ## Edition du fichier de configuration
 ```
 cat <<EOF > /etc/network/interfaces
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+source /etc/network/interfaces.d/*
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+# The Wan interface
+
+# The Lan1 interface
+
+# The Lan2 interface
+
+# The Lan3 interface
 
 EOF
 ```
